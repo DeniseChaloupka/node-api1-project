@@ -47,10 +47,10 @@ server.get('/api/users/:id', (req, res) => {
 //POST
 server.post('/api/users', (req, res) => {
     const newUser = req.body;
-    if (data.name && data.bio) {
+    if (newUser.name && newUser.bio) {
         data.insert(newUser)
             .then(users => {
-                res.statusMessage(201).json({ ...users, ...newUser })
+                res.status(201).json({Message:"User Added"})
             })
             .catch(error => {
                 console.log('error on post for users', error)
